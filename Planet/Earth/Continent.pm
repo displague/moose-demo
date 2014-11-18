@@ -1,6 +1,7 @@
 use MooseX::Declare;
 
 class Planet::Earth::Continent {
+  use Planet::Earth::Country;
   has name => ( is=>'rw', isa => 'Str', required => 1 );
   has countries => ( is=>'ro', isa => 'ArrayRef[Planet::Earth::Country]', required => 1, lazy_build => 1 );
 
@@ -10,6 +11,6 @@ class Planet::Earth::Continent {
     return \@continents;
   }
 
-  method _build_countries { Planet::Earth::Countries::getCountries($self->name) }
+  method _build_countries { Planet::Earth::Country::getCountries($self->name) }
 }
 
