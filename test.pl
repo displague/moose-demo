@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+use v5.020;
 use strict;
 use Data::Dumper;
 
@@ -12,9 +13,10 @@ print Dumper($continents);
 print Dumper($continents->[0]);
 
 print "\nCountries =====\n";
-print Dumper($continents->[6]->countries);
+#print Dumper($continents->[6]->countries);
 
-print Dumper($continents->[6]->countries->['North America']);
-my $countries = map { $_->countries() } values %$continents;
+#print Dumper($continents->[6]->countries->['North America']);
+my @countries = map { @{$_->countries} if defined $_->countries } values @{$continents};
+#my @countries = map { map { $_ } @{$_->countries} } values @{$continents};
 
-print Dumper($countries);
+print Dumper([@countries]);
