@@ -1,0 +1,7 @@
+#!/usr/bin/perl
+use strict;
+use v5.020;
+use lib '.';
+use Planet::Earth::Countries::App;
+Planet::Earth::Countries::App->run;
+
