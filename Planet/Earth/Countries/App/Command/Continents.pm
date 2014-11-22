@@ -1,5 +1,6 @@
 use MooseX::Declare;
 
+# ABSTRACT: list the continents
 class Planet::Earth::Countries::App::Command::Continents extends MooseX::App::Cmd::Command {
   use Planet::Earth;
   use Data::Printer;
