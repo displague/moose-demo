@@ -14,7 +14,7 @@ class Planet::Earth::Country {
   sub getCountries {
     my $continent = shift;
     my @countries;
-    return unless $continent ~~ $countries;
+    return unless exists $countries->{$continent};
     @countries = map { Planet::Earth::Country->new(name=>$_) if $_ } @{$countries->{$continent}};
     return \@countries;
   }
